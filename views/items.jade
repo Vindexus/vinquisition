@@ -3,10 +3,21 @@ extends layout
 block content
   h1 Items
 
+  h2 Equipment Tags
+
+  ul
+    each tag in game_data.tags
+      li
+        strong!= tag.name + ": "
+        != tag.description
+
+
   each item in items
     h3(id=item.key)= item.name
     .description!= item.description
-    .tags= item.tags.join(", ")
+    .tags
+      each tag in item.tags
+        span.tag(k=tag)
 
     if item.hasOwnProperty("extra_description")
       .extra-description!= item.extra_description

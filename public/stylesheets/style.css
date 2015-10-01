@@ -5,3 +5,16 @@ body {
 .tags {
   font-style: italic;
 }
+
+.tags .tag:after {
+  content: ", ";
+}
+
+div.tooltip-inner {
+  text-align: left;
+  max-width: 280px;
+}
+
+.tag-tooltip.has-description {
+  border-bottom: 1px dotted #ccc;
+}

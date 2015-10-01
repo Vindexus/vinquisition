@@ -55,3 +55,50 @@ appDirectives.directive('item', ['$rootScope', function ($rootScope) {
     }
   }
 }]);
+
+appDirectives.directive('tag', ['$rootScope', function ($rootScope) {
+  return {
+    restrict: 'EC',
+    template: '<span class="tag-tooltip">{{tag_name}}</a>',
+    scope: true,
+    link: function($scope, elem, attr) {
+      $rootScope.$watch('game_data', function () {
+        if(!$rootScope.game_data) {
+          return;
+        }
+
+        var tag_key = attr.k;
+        var tag_meta = false;
+
+        if(tag_key.indexOf(",") >= 0) {
+          var parts = tag_key.split(",");
+
+          tag_key = parts[0];
+          tag_meta = parts[1];
+        }
+
+        if($rootScope.game_data.tags.hasOwnProperty(tag_key)) {
+          console.log("tag_key", tag_key);
+          console.log("tag_meta", tag_meta);
+
+          var tag = $rootScope.game_data.tags[tag_key];
+          $scope.tag_name = tag.name;
+
+          if(tag_meta !== false) {
+            $scope.tag_name = tag_meta + " " + $scope.tag_name;
+          }
+
+          elem.find('.tag-tooltip').tooltip({
+            placement: "top",
+            html: true,
+            title: tag.description
+          }).addClass('has-description');
+        }
+        else {
+          $scope.tag_name = attr.k
+          elem.find('.tag-tooltip').addClass('no-description');
+        }
+      });
+    }
+  }
+}]);
