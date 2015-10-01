@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1= obj.name
+
+  .description!= obj.description
+
+  h2 Stats
+  p Your starting HP is #{obj.stats.starting_hp}+Constitution.
+
+  if obj.hasOwnProperty("starting_gear")
+    h2 Starting Gear
+    .starting-gear
+      != obj.starting_gear
+      p You start with #{obj.starting_thrones} thrones.
+
+  if obj.hasOwnProperty("starting_skills")
+    .skills.starting-skills
+      h2 Starting Skills
+      each key in obj.starting_skills
+        -skill = game_data.skills[key]
+        include ./partials/skill.jade
+
+  if obj.hasOwnProperty("advanced_skills")
+    .skills.advanced-skills
+      h2 Advanced Skills
+      each key in obj.advanced_skills
+        -skill = game_data.skills[key]
+        include ./partials/skill.jade
+
+
+  .extra-description!= obj.extra_description

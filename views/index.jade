@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1 Vinquisition
+  
+  h3 Classes
+  ul
+    each c in game_data.classes
+      li
+        a(href='/class/' + c.key)= c.name

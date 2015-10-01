@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Items
+
+  each item in items
+    h3(id=item.key)= item.name
+    .description!= item.description
+    .tags= item.tags.join(", ")
+
+    if item.hasOwnProperty("extra_description")
+      .extra-description!= item.extra_description
