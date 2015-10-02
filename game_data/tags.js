@@ -47,6 +47,10 @@ var tags = {
     description: 'It’s useful for attacking something in shouting distance.'
   },
   //New tags
+  scatter: {
+    name: 'Scatter',
+    description: 'Ranged only. Roll two damage die when at <em>close</em> range.'
+  },
   'long': {
     name: 'Long',
     description: 'Ranged only. It is useful for attacking something beyond shouting distance. When attempting a shot at Long distance you take -1 on your roll.'

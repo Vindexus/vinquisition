@@ -102,3 +102,29 @@ appDirectives.directive('tag', ['$rootScope', function ($rootScope) {
     }
   }
 }]);
+
+appDirectives.directive('skill', ['$rootScope', function ($rootScope) {
+  return {
+    restrict: 'E',
+    template: '<a href="{{url}}">{{skill_name}}</a>',
+    scope: true,
+    link: function($scope, elem, attr) {
+      $rootScope.$watch('game_data', function () {
+        if(!$rootScope.game_data) {
+          return;
+        }
+
+        if($rootScope.game_data.skills.hasOwnProperty(attr.k)) {
+          var skill = $rootScope.game_data.skills[attr.k];
+          $scope.skill_name = skill.name;
+          $scope.url = '/skills#' + attr.k;
+        }
+        else {
+          $scope.skill_name = attr.k;
+          $scope.url = "#";
+          elem.find('a').addClass('no-description');
+        }
+      });
+    }
+  }
+}]);
