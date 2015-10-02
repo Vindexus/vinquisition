@@ -62,6 +62,14 @@ var tags = {
   'power': {
     name: 'Power',
     description: 'Melee only. This item has a power field that can be activated. While active, you take the better of two rolls for damage and this item gains <tag k="messy"></tag>.'
+  },
+  'rare': {
+    name: 'Rare',
+    description: 'This item is rare and hard to locate. You might be able to find one in a city.'
+  },
+  'very_rare': {
+    name: 'Very Rare',
+    description: 'This item is exceedingly hard to find. There is a small chance to find one of these in a large city.'
   }
 };
 

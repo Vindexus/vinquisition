@@ -24,7 +24,28 @@ appDirectives.directive('item', ['$rootScope', function ($rootScope) {
           $scope.item = $rootScope.game_data.items[attr.k];
           $scope.url = "/items#" + attr.k;
 
-          var content = '<div><strong>' + $scope.item.name + '</strong></div><div>' + $scope.item.tags.join(", ") + '</div>';
+          var tags = $scope.item.tags;
+
+
+
+          var content = '<div><strong>' + $scope.item.name + '</strong></div><div>';
+
+          var first = true;
+          for(var i in tags) {
+            var tag = tags[i];
+
+            console.log("tag", tag);
+
+            if(typeof(tag) == "object") {
+              tag = tag[1] + " " + tag[0];
+            }
+
+            content += (first ? '' : ', ') + tag;
+
+            first = false;
+          }
+
+          content += '</div>';
 
           if($scope.item.hasOwnProperty("special_rules")) {
             content += ' <div>' + $scope.item.special_rules + '</div>';
@@ -78,8 +99,6 @@ appDirectives.directive('tag', ['$rootScope', function ($rootScope) {
         }
 
         if($rootScope.game_data.tags.hasOwnProperty(tag_key)) {
-          console.log("tag_key", tag_key);
-          console.log("tag_meta", tag_meta);
 
           var tag = $rootScope.game_data.tags[tag_key];
           $scope.tag_name = tag.name;
@@ -106,7 +125,7 @@ appDirectives.directive('tag', ['$rootScope', function ($rootScope) {
 appDirectives.directive('skill', ['$rootScope', function ($rootScope) {
   return {
     restrict: 'E',
-    template: '<a href="{{url}}">{{skill_name}}</a>',
+    template: '<a href="{{url}}">{{skill_name}}<span class="glyphicon"></span></a>',
     scope: true,
     link: function($scope, elem, attr) {
       $rootScope.$watch('game_data', function () {
@@ -116,8 +135,19 @@ appDirectives.directive('skill', ['$rootScope', function ($rootScope) {
 
         if($rootScope.game_data.skills.hasOwnProperty(attr.k)) {
           var skill = $rootScope.game_data.skills[attr.k];
-          $scope.skill_name = skill.name;
-          $scope.url = '/skills#' + attr.k;
+
+          if(skill.external_link) {
+            $scope.url = skill.external_link;
+            elem.find('a').attr("target", "_blank");
+            elem.find('.glyphicon').addClass('glyphicon-new-window');
+            $scope.skill_name = skill.name;
+          }
+          else {
+            $scope.url = '/skills#' + attr.k;
+            $scope.skill_name = skill.name;
+            elem.find('a').attr("target", "");            
+          }
+
         }
         else {
           $scope.skill_name = attr.k;
