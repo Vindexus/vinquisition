@@ -1,7 +1,11 @@
-.skill(id=skill.key)
-  h3= skill.name
-  if skill.external_link
-    .description
-      a(href=skill.external_link,target="_blank") #{skill.external_link} <span class="glyphicon glyphicon-new-window"></span>
-  else
-    .description!= skill.description
+if skill
+  .skill(id=skill.key)
+    h3= skill.name
+    if skill.external_link
+      .description
+        a(href=skill.external_link,target="_blank") #{skill.external_link} <span class="glyphicon glyphicon-new-window"></span>
+    else
+      .description!= skill.description
+else
+  .skill.missing
+    Skill missing.
