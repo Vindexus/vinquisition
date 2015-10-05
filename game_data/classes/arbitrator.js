@@ -6,7 +6,7 @@ module.exports = {
     starting_thrones: 20,
     load: '12+Str'
   },
-  description: 'As members of the Adeptus Arbites, Arbitrators are high level judges, juries, and executioners of the Imperium.',
+  description: '<p class="based-on">The Arbitrator is based on the Paladin and Fighter classes.</p><p>As members of the Adeptus Arbites, Arbitrators are high level judges, juries, and executioners of the Imperium.</p>',
   starting_gear: 'You start with <item k="chainmail_armor"></item> and <item k="rations"></item>. Choose your weapon: <ul>' +
   '<li><item k="long_sword"></item> and <item k="shield"></item></li>' + 
   '<li><item k="halberd"></item></li></ul>' +

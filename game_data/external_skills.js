@@ -9,9 +9,6 @@ skills.hack_and_slash = {
   external_link: 'http://www.dungeonworldsrd.com/moves#TOC-Hack-and-Slash'
 };
 
-skills.volley = {
-  external_link: 'http://www.dungeonworldsrd.com/moves#TOC-Volley'
-};
 
 skills.cheap_shot = {
   external_link: 'http://www.dungeonworldsrd.com/classes/thief#TOC-Cheap-Shot'
@@ -35,6 +32,10 @@ skills.bloodthirsty = {
 
 skills.bend_bars_lift_gates = {
   external_link: 'http://www.dungeonworldsrd.com/classes/fighter#TOC-Bend-Bars-Lift-Gates'
-}
+};
+
+skills.called_shot = {
+  external_link: 'http://www.dungeonworldsrd.com/moves#TOC-Called-Shot'
+};
 
 module.exports = skills;

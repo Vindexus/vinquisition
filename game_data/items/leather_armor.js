@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'Chainmail Armor',
-  weight: 2,
+  name: 'Leather Armor',
+  weight: 1,
   tags: [['armor', 1]]
 };

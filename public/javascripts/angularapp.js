@@ -26,9 +26,12 @@ appDirectives.directive('item', ['$rootScope', function ($rootScope) {
 
           var tags = $scope.item.tags;
 
-
+          tags.unshift(['weight', $scope.item.weight]);
+          tags.unshift(['thrones', $scope.item.thrones]);
 
           var content = '<div><strong>' + $scope.item.name + '</strong></div><div>';
+
+
 
           var first = true;
           for(var i in tags) {

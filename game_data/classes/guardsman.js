@@ -5,7 +5,7 @@ c.key = 'guardsman';
 c.stats = {
   starting_hp: 8
 };
-c.description = 'Ex-soldiers. So strong.';
+c.description = '<p class="based-on">The Guardsman is based on the Ranger and Fighter classes.</p>';
 c.starting_skills = ['called_shot', 'hatred', 'suppressing_fire', 'grenade_expert'];
 c.starting_thrones = 50;
 c.starting_gear = 'Choose from: ' + 
