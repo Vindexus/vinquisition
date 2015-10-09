@@ -14,6 +14,10 @@ skills.cheap_shot = {
   external_link: 'http://www.dungeonworldsrd.com/classes/thief#TOC-Cheap-Shot'
 };
 
+skills.dirty_fighter = {
+  external_link: 'http://www.dungeonworldsrd.com/classes/thief#TOC-Dirty-Fighter'
+};
+
 skills.iron_hide = {
   external_link: 'http://www.dungeonworldsrd.com/classes/fighter#TOC-Iron-Hide'
 };
