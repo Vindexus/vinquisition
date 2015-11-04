@@ -39,7 +39,12 @@ skills.bend_bars_lift_gates = {
 };
 
 skills.called_shot = {
-  external_link: 'http://www.dungeonworldsrd.com/moves#TOC-Called-Shot'
+  external_link: 'http://www.dungeonworldsrd.com/classes/ranger#TOC-Called-Shot'
+};
+
+skills.hunt_and_track = {
+  name: 'Hunt and Track',
+  external_link: 'http://www.dungeonworldsrd.com/classes/ranger#TOC-Hunt-and-Track-Wis-'
 };
 
 module.exports = skills;

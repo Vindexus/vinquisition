@@ -3,7 +3,7 @@ module.exports = {
   key: 'arbitrator',
   stats: {
     starting_hp: 10,
-    starting_thrones: 20,
+    starting_thrones: 10,
     load: '12+Str'
   },
   description: '<p class="based-on">The Arbitrator is based on the Paladin and Fighter classes.</p><p>As members of the Adeptus Arbites, Arbitrators are high level judges, juries, and executioners of the Imperium.</p>',
@@ -12,5 +12,5 @@ module.exports = {
   '<li><item k="halberd"></item></li></ul>' +
   'Choose one: <ul><li><item k="adventuring_gear"></item></li><li><item k="rations"></item> and <item k="medicae_kit"></item></li></ul>',
   starting_skills: ['i_am_the_law', 'armored', 'bend_bars_lift_gates', 'emperors_justice'],
-  advanced_skills: ['merciless', 'bloodthirsty', 'interrogator', 'armor_mastery']
+  advanced_skills: ['merciless', 'bloodthirsty', 'interrogator', 'torturer', 'armor_mastery', 'seeing_red', 'scent_of_blood', 'iron_hide', 'armor_mastery', 'steel_hide']
 };
