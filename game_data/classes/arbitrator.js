@@ -12,5 +12,5 @@ module.exports = {
   '<li><item k="halberd"></item></li></ul>' +
   'Choose one: <ul><li><item k="adventuring_gear"></item></li><li><item k="rations"></item> and <item k="medicae_kit"></item></li></ul>',
   starting_skills: ['i_am_the_law', 'armored', 'bend_bars_lift_gates', 'emperors_justice'],
-  advanced_skills: ['merciless', 'bloodthirsty', 'interrogator', 'torturer', 'armor_mastery', 'seeing_red', 'scent_of_blood', 'iron_hide', 'armor_mastery', 'steel_hide']
+  advanced_skills: ['merciless', 'bloodthirsty', 'interrogator', 'torturer', 'iron_hide']
 };

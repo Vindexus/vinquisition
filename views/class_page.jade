@@ -12,13 +12,14 @@ block content
     h2 Starting Gear
     .starting-gear
       != obj.starting_gear
-      p You start with #{obj.starting_thrones} thrones.
+      p You start with #{obj.stats.starting_thrones} thrones.
 
   if obj.hasOwnProperty("starting_skills")
     .skills.starting-skills
       h2 Starting Skills
       each key in obj.starting_skills
         -skill = game_data.skills[key]
+        -skill_key = key
         include ./partials/skill.jade
 
   if obj.hasOwnProperty("advanced_skills")
@@ -26,6 +27,7 @@ block content
       h2 Advanced Skills
       each key in obj.advanced_skills
         -skill = game_data.skills[key]
+        -skill_key = key
         include ./partials/skill.jade
 
 

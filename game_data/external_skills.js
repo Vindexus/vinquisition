@@ -47,4 +47,12 @@ skills.hunt_and_track = {
   external_link: 'http://www.dungeonworldsrd.com/classes/ranger#TOC-Hunt-and-Track-Wis-'
 };
 
+skills.armored = {
+  external_link: 'http://www.dungeonworldsrd.com/classes/paladin#TOC-Armored'
+};
+
+skills.backstab = {
+  external_link: 'http://www.dungeonworldsrd.com/classes/thief#TOC-Backstab'
+};
+
 module.exports = skills;

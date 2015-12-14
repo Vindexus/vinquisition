@@ -10,6 +10,10 @@ body {
   content: ", ";
 }
 
+.tags .tag:last-of-type:after {
+  content: "";
+}
+
 div.tooltip-inner {
   text-align: left;
   max-width: 280px;
