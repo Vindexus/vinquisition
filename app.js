@@ -4,15 +4,31 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require("fs");
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var game_data = require('./game_data/index');
+var path = require('path');
+var appDir = path.dirname(require.main.filename);
+
+var gameData = require('./game_data/index')({
+  gameDataDir: 'D:/github/vinquisition/game_data',
+  simples: ['tags', 'external_skills'],
+  folders: ['classes', 'items', 'skills']
+});
+
+fs.readFile(appDir +'/templates/introduction.xml', 'utf8', function(err, data) {
+  var introXML = gameData.parseHTML(data, {
+    },
+    function(err, result) {; 
+    
+    });
+});
 
 var app = express();
 
-app.locals.game_data = game_data;
+app.locals.gameData = gameData;
 
 // The static middleware must come after the sass middleware
 app.use(express.static(path.join(__dirname, 'public')));
