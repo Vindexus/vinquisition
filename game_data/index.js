@@ -91,7 +91,7 @@ var factory = function(options) {
     return obj;
   }
 
-  function parsePage(pageContent, outputType, callback) {
+  function parsePageContent(pageContent, parseType, callback) {
     jsdom.env(
       pageContent,
       ["http://code.jquery.com/jquery.js"],
@@ -140,6 +140,22 @@ var factory = function(options) {
           $this.replaceWith('<span>' + gamedata + '</span>');
         });
 
+        if(parseType == 'web') {
+          $('[aid\\:pstyle],[aid\\:cstyle]').each(function () {
+            $(this).removeAttr('aid:pstyle').removeAttr('aid:cstyle');
+          });
+        }
+        else if(parseType == 'indesign') {
+          console.log("INDESIGNINDESIGNDESINGDSDEINGSDESING");
+          $('[class]').each(function () {
+            console.log("remove class for " + $(this).text() + ": " + $(this).attr("class"));
+            $(this).removeAttr('class');
+          });
+        }
+
+        $('script').each(function() {
+          $(this).replaceWith('');
+        });
 
         var parsed = $('body').html();
         console.log('----');
@@ -149,9 +165,9 @@ var factory = function(options) {
     );
   }
 
-  function parsePageToFile(pageFile, destFile) {
+  function parsePageToFile(pageFile, parseType, destFile) {
     var pageContent = fs.readFileSync(options.pagesDir + '/' + pageName, 'utf8');
-    parsePage(pageContent, '', function(parsedContent) {
+    parsePageContent(pageContent, parseType, function(parsedContent) {
       console.log("destFile", destFile);
       console.log("parsedContent", parsedContent);
       try {
@@ -180,12 +196,12 @@ var factory = function(options) {
 
       if(options.outputWebDir) {
         var webDest = options.outputWebDir + '/' + pageName + '.html';
-        parsePageToFile(pageLocation, webDest);
+        parsePageToFile(pageLocation, 'web', webDest);
       }
 
       if(options.outputInDesignDir) {
         var inDesignDest = options.outputInDesignDir + '/' + pageName + '.xml';
-        parsePageToFile(pageLocation, inDesignDest);
+        parsePageToFile(pageLocation, 'indesign', inDesignDest);
       }
     }
   }
