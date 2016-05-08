@@ -13,17 +13,12 @@ var path = require('path');
 var appDir = path.dirname(require.main.filename);
 
 var gameData = require('./game_data/index')({
-  gameDataDir: 'D:/github/vinquisition/game_data',
+  gameDataDir: 'C:/github/vinquisition/game_data',
+  pagesDir: 'C:/github/vinquisition/pages',
+  outputInDesignDir: 'C:/Users/Vindexus/Documents/vinquisitionout/indesign',
+  outputWebDir: 'C:/Users/Vindexus/Documents/vinquisitionout/web', 
   simples: ['tags', 'external_skills'],
   folders: ['classes', 'items', 'skills']
-});
-
-fs.readFile(appDir +'/templates/introduction.xml', 'utf8', function(err, data) {
-  var introXML = gameData.parseHTML(data, {
-    },
-    function(err, result) {; 
-    
-    });
 });
 
 var app = express();
